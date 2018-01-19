@@ -106,7 +106,9 @@ def add_to_cart(melon_id):
 
     session["cart"][melon_id] = session["cart"].get(melon_id, 0) + 1
 
-    flash("Melon Added!!!!!!")
+    melon = melons.get_by_id(melon_id)
+
+    flash("{} Added!!!!!!".format(melon.common_name))
 
     return redirect("/cart")
 
