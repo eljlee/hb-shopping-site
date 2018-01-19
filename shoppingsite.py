@@ -55,8 +55,8 @@ def show_melon(melon_id):
                            display_melon=melon)
 
 
-@app.route("/cart/<melon_id>")
-def show_shopping_cart(melon_id):
+@app.route("/cart")
+def show_shopping_cart():
     """Display content of shopping cart."""
 
     # TODO: Display the contents of the shopping cart.
@@ -105,6 +105,8 @@ def add_to_cart(melon_id):
         session["cart"] = {}
 
     session["cart"][melon_id] = session["cart"].get(melon_id, 0) + 1
+
+    flash("Melon Added!!!!!!")
 
     return redirect("/cart")
 
